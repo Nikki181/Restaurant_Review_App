@@ -12,8 +12,8 @@ self.addEventListener('install',function(event){
               '/js/main.js',
               '/js/dbhelper.js',
               '/js/restaurant_info.js', '/index.html', '/restaurant.html',
-              '/sw.js'
-              'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css',
+              '/sw.js' ,
+              'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css'
         
                     ]);
                                         }).catch(function(errmessage){
@@ -24,9 +24,7 @@ self.addEventListener('install',function(event){
 })
 
 self.addEventListener('fetch',function(event){ 
-  debugger; 
-  console.log("fetch");
-  event.respondWith( 
+    event.respondWith( 
     caches.match(event.request).then(function(response){ 
       if(response) return response; 
       return fetch(event.request);
